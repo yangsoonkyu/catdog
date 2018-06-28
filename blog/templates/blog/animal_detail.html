@@ -11,5 +11,21 @@
 {{ animal.other }}
 <a href="{% url 'blog:animal_animove' pk=animal.pk %}">Publish</a>
 <a href="{% url 'blog:animal_edit' pk=animal.pk %}">수정</a>
+
+<a class="btn btn-default" href="{% url 'blog:add_comment_to_animal' pk=animal.pk %}">Add comment</a>
+        {% for comment in animal.comments.all %}
+            {% if user.is_authenticated or comment.approved_comment %}
+            <div class="comment">
+                {{ comment.created_date }}<br>
+                {% if not comment.approved_comment %}
+                    <a href="{% url 'blog:comment_remove' pk=comment.pk %}">삭제</a>
+                    <a href="{% url 'blog:comment_approve' pk=comment.pk %}">승인</a>
+                {% endif %}
+                <p>{{ comment.author }} {{ comment.text|linebreaks }}</p>
+            </div>
+            {% endif %}
+        {% empty %}
+            <p>No comments here yet :(</p>
+        {% endfor %}
 </body>
 </html>
