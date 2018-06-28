@@ -1,0 +1,54 @@
+
+
+    <form action="" method="POST">
+    {% csrf_token %}
+    품종:
+    <select name="type_id">
+        <option value="1">한국고양이</option>
+        <option value="2">러시안블루</option>
+        <option value="3">터키시앙고라</option>
+        <option value="4">노르웨이 포레스트</option>
+        <option value="5">페르시안 친칠라</option>
+        <option value="6">믹스묘 및 기타</option>
+        <option value="7">말티즈</option>
+        <option value="8">요크셔테리어</option>
+        <option value="9">치와와</option>
+        <option value="10">슈나우저</option>
+        <option value="11">시츄</option>
+        <option value="12">믹스견 및 기타</option>
+    </select>
+
+    성별 :
+    <input type="radio" name="gender" value="Male"> 수컷
+    <input type="radio" name="gender" value="Female"> 암컷 <br><br>
+
+    추정나이:
+    <input type="number" name="age" min="1" max="10"><br><br>
+
+    구조장소:
+    <input type="text" name="find_point"  ><br><br>
+
+    발견날짜:
+    <input type="date" name="find_date"><br><br>
+
+    발견시간:
+    <input type="text" name="find_time" maxlength="100"><br><br>
+
+    보호 장소 :
+    <input type="text" name="animal_shelter" maxlength="200"><br><br>
+
+    보호소 전화번호 :<br>
+    <input type="tel" name="Shelter_tel" maxlength="10"> <sub>숫자만 10자리 입력하세요</sub><br><br>
+
+    특이사항 : <br>
+    <textarea name="other" id="" cols="50" rows="20"></textarea><br><br>
+
+
+
+
+
+
+
+<button type="submit">저장 </button> <input type="reset">
+</form>
+
