@@ -1,5 +1,5 @@
 from django import forms
-from .models import Animal
+from .models import Animal, Comment
 
 class AnimalForm(forms.ModelForm):
 
@@ -16,3 +16,9 @@ class AnimalForm(forms.ModelForm):
             'animal_shelter',
             'shelter_tel',
         )
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('author', 'text',)
