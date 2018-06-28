@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ animal.gender }}
+{{ animal.find_point }}
+{{ animal.age }}
+{{ animal.other }}
+<a href="{% url 'blog:animal_animove' pk=animal.pk %}">Publish</a>
+<a href="{% url 'blog:animal_edit' pk=animal.pk %}">수정</a>
+</body>
+</html>
