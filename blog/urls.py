@@ -11,4 +11,7 @@ urlpatterns = [
     url(r'^animal/new/$', views.animal_new, name='animal_new'),
     url(r'^animal/(?P<pk>\d+)/animove/$', views.animal_animove, name='animal_animove'),
     url(r'^drafts/$', views.draft_list, name='draft_list'),
+    url(r'^animal/(?P<pk>\d+)/comment/$', views.add_comment_to_animal, name='add_comment_to_animal'),
+    url(r'^comment/(?P<pk>\d+)/approve/$', views.comment_approve, name='comment_approve'),
+    url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
 ]
