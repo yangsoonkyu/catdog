@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-{% if user.is_authenticated %}
-    {% for animal in animals %}
-        {{ animal }}
-        <a href="{% url 'blog:animal_remove' pk=animal.pk %}">삭제</a>
-    {% endfor %}
-{% endif %}
-</body>
-</html>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+{% for animal in animals %}
+
+
+<a href="{% url 'blog:animal_detail' pk=animal.pk %}">사진<br>
+공고번호:{{ animal.id }}<br></a>
+{{animal.type}}  구조날짜 : {{animal.find_date}}  성별 : {{animal.gender}}
+    <br>
+<p>Comments: {{ animal.approved_comments.count }}</p>
+
+{% endfor %}
+{% endblock%}
