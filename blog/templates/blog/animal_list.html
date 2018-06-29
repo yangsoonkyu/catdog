@@ -9,7 +9,7 @@
 <a href="{% url 'blog:animal_detail' pk=cat.pk %}">사진<br></a>
 <a href="{% url 'blog:animal_detail' pk=cat.pk %}">공고번호:{{ cat.id }}<br></a>
 
-{{cat.type}} _ 구조날짜 : {{cat.find_date}}_ 
+{{cat.type}}  구조날짜 : {{cat.find_date}}  성별 : {{cat.gender}}
     <br>
 <p>Comments: {{ animal.approved_comments.count }}</p>
 
@@ -20,9 +20,11 @@
 
 {% if dog_list %}
 {% for dog in dog_list %}
-사진<br>
-<a href="{% url 'blog:animal_detail' pk=dog.pk %}">고유번호<br></a>
-    {{ dogs.id }}<br>
+<a href="{% url 'blog:animal_detail' pk=dog.pk %}">사진<br></a>
+<a href="{% url 'blog:animal_detail' pk=dog.pk %}">공고번호:{{ dog.id }}<br></a>
+
+{{dog.type}}  구조날짜 : {{dog.find_date}}  성별 : {{dog.gender}}
+<br>
 <p>Comments: {{ animal.approved_comments.count }}</p>
 {% endfor %}
 {% endif %}

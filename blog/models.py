@@ -14,13 +14,13 @@ class Kind(models.Model):
 
 class Animal(models.Model):
     type = models.ForeignKey('blog.Kind', on_delete=models.CASCADE)
-    Female = "FE"
-    Male = "MA"
+    Female = "암컷"
+    Male = "수컷"
     gender_choice = ((Female, "암컷"), (Male, "수컷"),)
     gender = models.CharField(max_length=2, choices=gender_choice)
     age = models.IntegerField(blank=True, null=True)
     find_point = models.CharField(max_length=200)  #발견장소
-    find_date = models.DateField(blank=True, null=True)
+    find_date = models.DateField(default=timezone.now)
     find_time = models.CharField(max_length=50, blank= True, null= True)
     other = models.TextField()   #기타 특징
     animal_shelter = models.CharField(max_length=200)   #보호센터
