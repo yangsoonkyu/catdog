@@ -10,12 +10,12 @@ def home(request):
 
 def cat_list(request):
     cat = Animal.objects.filter(type__type="고양이", animal_move=False)
-    return render(request, 'blog/animal_list.html', {'cat':cat})
+    return render(request, 'blog/animal_list.html', {'cat_list': cat})
 
 
 def dog_list(request):
     dog = Animal.objects.filter(type__type="강아지", animal_move=False)
-    return render(request, 'blog/animal_list.html', {'dog': dog})
+    return render(request, 'blog/animal_list.html', {'dog_list': dog})
 
 
 def animal_detail(request, pk):
