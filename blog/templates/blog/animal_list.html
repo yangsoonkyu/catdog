@@ -11,10 +11,13 @@
 
 {{cat.type}}  구조날짜 : {{cat.find_date}}  성별 : {{cat.gender}}
     <br>
-<p>Comments: {{ animal.approved_comments.count }}</p>
+<p>Comments: {{ cat.comments.count }}</p>
+
 
 {% endfor %}
 {% endif %}
+
+
 
 
 
@@ -25,7 +28,7 @@
 
 {{dog.type}}  구조날짜 : {{dog.find_date}}  성별 : {{dog.gender}}
 <br>
-<p>Comments: {{ animal.approved_comments.count }}</p>
+<p>Comments: {{ dog.approved_comments.count }}</p>
 {% endfor %}
 {% endif %}
 

@@ -43,6 +43,9 @@ class Animal(models.Model):
         third = tel[6:10]
         return '(' + first + ')' + '-' + second + '-' + third
 
+    def approved_commnet(self):
+        return self.comments.filter(approved_commnet=True)
+
 
 class Comment(models.Model):
     animal = models.ForeignKey('blog.Animal', related_name='comments')
