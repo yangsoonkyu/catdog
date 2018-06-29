@@ -1,17 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-{{ animal.gender }}
-{{ animal.find_point }}
-{{ animal.age }}
-{{ animal.other }}
-<a href="{% url 'blog:animal_animove' pk=animal.pk %}">Publish</a>
-<a href="{% url 'blog:animal_edit' pk=animal.pk %}">수정</a>
+{% extends 'blog/base.html' %}
 
+{% block content %}
+
+{% if user.is_authenticated %}
+<a class="btn btn-default" href="{% url 'blog:animal_edit' pk=animal.pk %}">수정</a>
+<a class="btn btn-default" href="{% url 'blog:animal_animove' pk=animal.pk %}">♥입양완료♥</a><br>
+{% endif %}
+게시물 생성날짜:
+<div class="작은글씨">
+    <p>{{ animal.created_date }}</p></div>
+
+#사진<br><br>
+
+유기동물정보
+    <div class="정보">
+        <p>성별:{{ animal.gender }}/(추정)나이:{{ animal.age }}/발견장소:{{ animal.find_point }}/발견날짜:{{ animal.find_date }}/발견시간:{{ animal.find_time }}</p>
+        <p>기타 특이사항:{{ animal.other }}</p>
+        <p>보호센터:{{ animal.animal_shelter }}/보호센터 Tel.{{ animal.shelter_tel }}</p></div>
+<br><br>
+#댓글
+<br>
 <a class="btn btn-default" href="{% url 'blog:add_comment_to_animal' pk=animal.pk %}">Add comment</a>
         {% for comment in animal.comments.all %}
             {% if user.is_authenticated or comment.approved_comment %}
@@ -27,5 +35,4 @@
         {% empty %}
             <p>No comments here yet :(</p>
         {% endfor %}
-</body>
-</html>
+{% endblock %}
