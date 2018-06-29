@@ -10,7 +10,7 @@ def home(request):
 
 def cat_list(request):
     cat = Animal.objects.filter(type__type="고양이", animal_move=False)
-    return render(request, 'blog/animal_list.html', {'cat_list':cat})
+    return render(request, 'blog/animal_list.html', {'cat_list': cat})
 
 
 def dog_list(request):
