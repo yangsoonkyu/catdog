@@ -5,13 +5,18 @@
 {% if cat_list %}
 {% for cat in cat_list %}
 
-사진<br>
-<a href="{% url 'blog:animal_detail' pk=cat.pk %}">고유번호<br></a>
-    {{ cats.id }}<br>
+
+<a href="{% url 'blog:animal_detail' pk=cat.pk %}">사진<br></a>
+<a href="{% url 'blog:animal_detail' pk=cat.pk %}">공고번호:{{ cat.id }}<br></a>
+
+{{cat.type}} _ 구조날짜 : {{cat.find_date}}_ 
+    <br>
 <p>Comments: {{ animal.approved_comments.count }}</p>
 
 {% endfor %}
 {% endif %}
+
+
 
 {% if dog_list %}
 {% for dog in dog_list %}
