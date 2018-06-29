@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'blog/base.html' %}
 
-</body>
-</html>
+{% block content %}
+
+{% if cat_list %}
+{% for cat in cat_list %}
+
+사진<br>
+<a href="{% url 'blog:animal_detail' pk=cat.pk %}">고유번호<br></a>
+    {{ cats.id }}<br>
+<p>Comments: {{ animal.approved_comments.count }}</p>
+
+{% endfor %}
+{% endif %}
+
+{% if dog_list %}
+{% for dog in dog_list %}
+사진<br>
+<a href="{% url 'blog:animal_detail' pk=dog.pk %}">고유번호<br></a>
+    {{ dogs.id }}<br>
+<p>Comments: {{ animal.approved_comments.count }}</p>
+{% endfor %}
+{% endif %}
+
+{% endblock%}
+
