@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Animal
-from .form import AnimalForm
+from .models import Animal, Comment
+from .form import AnimalForm, CommentForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -72,3 +72,30 @@ def draft_list(request):
     return render(request, 'blog/draft_list.html', {'animals':animals})
 
 
+@login_required
+def add_comment_to_animal(request, pk):
+    animal = get_object_or_404(Animal, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.animal = animal
+            comment.save()
+            return redirect('blog:animal_detail', pk=animal.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'blog/add_comment_to_animal.html', {'form':form})
+
+
+@login_required
+def comment_approve(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.approve()
+    return redirect('blog:animal_detail', pk=comment.animal.pk)
+
+
+@login_required
+def comment_remove(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    comment.delete()
+    return redirect('blog:animal_detail', pk=comment.animal.pk)
