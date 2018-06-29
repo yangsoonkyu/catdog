@@ -1,22 +1,30 @@
+
 .page-header {
-    background-color: #C8BFE7;
+    background-color: #EFDAED;
     margin-top: 0;
-    padding: 20px  20px 20px 20px;
+    padding: 10px  10px 10px 10px;
+    background: linear-gradient(#FDD8E5, #E8E2FB);
+}
+
+.page-header h1 a {
+    font-size: 80px;
+    color: #FFFFFF;
 }
 
 .list {
     padding: 20px  20px 20px 20px;
     border: 5px
     }
-.page-header {
-    background-color: #C8BFE7;
-    margin-top: 0;
-    padding: 20px  20px 20px 20px;
+
+
+h1 {
+    font-size: 45px;
 }
-
-
-h1, h2 {
-    font-family: 'Lobster', cursive;
+h2{
+    font-size: 38px;
+}
+h5{
+    font-size: 20px;
 }
 
 .date {

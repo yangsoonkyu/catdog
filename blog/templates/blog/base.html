@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <style>
+      @import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+      h1, h2, h5 { font-family: 'Nanum Pen Script', cursive; }
+    </style>
 </head>
 <body>
 <div class="page-header">
@@ -16,7 +20,7 @@
     {% else %}
     <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
     {% endif %}
-    <h1 align="center"><a href="/"><img src="">멍냥이</a></h1>
+    <h1 align="center"><a href="/">멍 냥 이</a></h1>
 </div>
 <div class="content container">
     <div class="row">
